@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate') %> 
+<h1><%= pollroom.roomName %> </h1>
+
+<form action="<%=`/pollroom/${pollroom._id}`%> " method="post">
+<label for="question">Question : </label>
+<textarea name="question" id="question" cols="30" rows="10">
+</textarea>
+
+<button type="submit">Poll</button>
+
+</form>
+
+<% for( que of pollroom.polls) { %> 
+
+<p><%= que.question %> </p>
+
+<% } %> 
