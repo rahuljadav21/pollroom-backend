@@ -69,7 +69,7 @@ app.use('/pollroom',require('./routes/pollroom'))
 
 //Error Handaling
 if(process.env.NODE_ENV=='production'){
-  const path = require('path')
+  
 
   app.get('/',(req,res)=>{
       app.use(express.static(path.resolve(__dirname,'client','build')))
