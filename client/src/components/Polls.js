@@ -15,7 +15,7 @@ function Polls({room,polls,user}) {
           },
           })
           .then(function(response) {
-           history.go(-1)
+           history.go(0)
            
           })
           .catch(function(error) {
