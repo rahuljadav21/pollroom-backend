@@ -60,7 +60,7 @@ app.use(passport.session())
 
 const PORT = process.env.PORT
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+//app.use(cors());
 
 //routes
 app.use('/',require('./routes/index'))
