@@ -21,7 +21,8 @@ function Find() {
         if(response.data==='RoomName or RoomCode is Wrong'){
           setErr(response.data)
         }else{
-          history.push(`/pollroom/room/${response.data._id}`)
+          
+          window.open(`https://pollroom.herokuapp.com/pollroom/room/${response.data._id}`,"_self")
 
         }
            

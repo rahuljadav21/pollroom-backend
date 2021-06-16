@@ -16,8 +16,7 @@ function Create() {
       },
       })
       .then(function(response) {
-      console.log(response.data._id);
-      history.push(`/pollroom/room/${response.data._id}`)
+      window.open(`https://pollroom.herokuapp.com/pollroom/room/${response.data._id}`,"_self")
       })
       .catch(function(error) {
         console.log(error);  
