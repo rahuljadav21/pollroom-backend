@@ -15,7 +15,7 @@ function Polls({room,polls,user}) {
           },
           })
           .then(function(response) {
-           history.go(0)
+            window.open(`https://pollroom.herokuapp.com/pollroom/room/${room._id}`,"_self")
           })
           .catch(function(error) {
             console.log(error);  
