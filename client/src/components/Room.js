@@ -17,6 +17,7 @@ function Child({room,polls,user }) {
          })
          .then(function(response) {
              history.push(`/pollroom/room/${room._id}`)
+             setQuestion('')
                      
          })
          .catch(function(error) {
@@ -58,7 +59,7 @@ function Parent() {
 
     setTimeout(() => {     
         setTime(!time);
-     }, 7000);
+     }, 3000);
 
     
    
