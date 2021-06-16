@@ -58,7 +58,7 @@ app.use(session(sessionConfig))
 app.use(passport.initialize())
 app.use(passport.session())
 
-const PORT = 5000
+const PORT = 5000 || process.env.PORT
 
 app.use(cors());
 
