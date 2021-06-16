@@ -9,12 +9,12 @@ router.get('/google',passport.authenticate('google',{scope : ['profile']}))
 
 
 router.get('/google/callback',passport.authenticate('google',{failureRedirect : '/'}),(req,res)=>{
-    res.redirect('https://pollroom.netlify.app/pollroom')
+    res.redirect('http://localhost:3000/pollroom')
 })
 
 router.get('/logout',(req,res)=>{
     req.logOut()
-    res.redirect('https://pollroom.netlify.app/')
+    res.redirect('http://localhost:3000')
 })
 
 module.exports = router

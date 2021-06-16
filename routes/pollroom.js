@@ -5,43 +5,48 @@ const PollRoom = require('../models/PollRoom');
 
 const Poll = require('../models/Poll');
 
-const catchAsync = require('../utils/catchAsync');
 
 
 
-router.post('/create',ensureAuth,catchAsync(async(req,res)=>{
+router.post('/create',(req,res)=>{
+    console.log(req.body)
     const pollroom = new PollRoom({roomName : req.body.roomName,roomCode : req.body.roomCode})
     pollroom.creater = req.user._id
-    await pollroom.save()
-    res.redirect(`https://pollroom.netlify.app/pollroom/room/${pollroom._id}`)
-    }))
+    pollroom.save()  
+    res.send(pollroom); 
+    })
 
-router.post('/find',ensureAuth,catchAsync(async(req,res)=>{
-   const pollroom = await PollRoom.findOne(req.body);
-  
-
-   res.redirect(`https://pollroom.netlify.app/pollroom/room/${pollroom._id}`)
-}))
-router.get('/room/:id',ensureAuth,catchAsync(async(req,res)=>{
+router.post('/find',async(req,res)=>{
+    console.log(req.body)
+   const pollroom = await PollRoom.findOne(req.body)
+   if(!pollroom){
+       res.send('RoomName or RoomCode is Wrong')
+   }
+   else{res.send(pollroom)}
+   //console.log(pollroom)
+})
+router.get('/room/:id',async(req,res)=>{
     const {id} = req.params;
-    const {question} = req.body;
     const pollroom = await PollRoom.findById(id).populate('polls')
-    res.send(pollroom)
+    res.send(pollroom);
 
-}))
+})
 
-router.post('/room/:id',ensureAuth,catchAsync(async(req,res)=>{
+router.post('/room/:id',ensureAuth,async(req,res)=>{
     const {id} = req.params;
     const {question} = req.body;
-    const pollroom = await PollRoom.findById(id)
-    const poll = new Poll({question :question,sender:req.user.displayName,room:pollroom.roomName})
+    //console.log(req.body)
+    const pollroom = await PollRoom.findById(id).populate('polls')
+    const poll = new Poll({question:question,room:pollroom.roomName})
+    poll.sender = req.user.displayName    
     await poll.save()
     pollroom.polls.push(poll);
     await pollroom.save()
     
-    res.redirect(`https://pollroom.netlify.app/pollroom/room/${pollroom._id}`)
-}))
-router.post('/room/:id/poll/:qId',catchAsync(async(req,res)=>{
+    //console.log(poll)
+})
+
+router.post('/room/:id/poll/:qId',async(req,res)=>{
     const {id,qId} = req.params;
     const pollroom = await PollRoom.findById(id)    
      var poll = await Poll.findById(qId); 
@@ -74,7 +79,7 @@ router.post('/room/:id/poll/:qId',catchAsync(async(req,res)=>{
     npoll.save()
   
      }
-   res.redirect(`https://pollroom.netlify.app/pollroom/room/${pollroom._id}`)    
-}))
+     res.send(pollroom); 
+})
 
 module.exports = router
