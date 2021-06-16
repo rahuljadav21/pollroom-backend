@@ -36,7 +36,7 @@ function Child({room,polls,user }) {
                     {<Polls room={room} polls={polls} user={user} />}
                 </div>
                 <div className="add-container">
-                    <form onSubmit={handleSubmit} >
+                    <form onSubmit={handleSubmit} method='post' >
                         <textarea onChange={e=>setQuestion(e.target.value)} name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
                         <button type='submit' style={{background:'#198754'}}>Add</button>
                         
