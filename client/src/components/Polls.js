@@ -15,7 +15,7 @@ function Polls({room,polls,user}) {
           },
           })
           .then(function(response) {
-            window.open(`https://pollroom.herokuapp.com/pollroom/room/${room._id}/poll/${pollId}`,"_self")
+           history.push(`/pollroom/room/${room._id}/poll/${pollId}`)
            
           })
           .catch(function(error) {
