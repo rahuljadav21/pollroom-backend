@@ -9,7 +9,7 @@ function Child({room,polls,user }) {
     
     const history = useHistory();
     const handleSubmit = (e) => {
-       
+        e.preventDefault()
        axios.post(`/pollroom/room/${room._id}`,{question:question },{
          "headers": {
          "content-type": "application/json",

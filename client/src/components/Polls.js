@@ -8,7 +8,7 @@ function Polls({room,polls,user}) {
     const [ans,setAns] = useState('');
     const [pollId,setpollId]=useState('');
     const handleSubmit = (e) => {
-       
+         e.preventDefault()
         axios.post(`/pollroom/room/${room._id}/poll/${pollId}`,{ans : ans},{
           "headers": {
           "content-type": "application/json",
