@@ -36,10 +36,6 @@ app.use(express.json());
 
 app.use(methodOverride('_method'));
 
-//static
-
-app.use(express.static(path.join(__dirname,'public')))
-
 //session
 const sessionConfig = {
   name : 'session',
@@ -72,8 +68,8 @@ if(process.env.NODE_ENV=='production'){
   
 
   app.get('/',(req,res)=>{
-      app.use(express.static(path.resolve(__dirname,'client','build')))
-      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+      app.use(express.static("/client/build"));
+      
   })
 }
 
