@@ -60,7 +60,7 @@ app.use(passport.session())
 
 const PORT = process.env.PORT
 
-//app.use(cors());
+app.use(cors());
 
 //routes
 app.use('/',require('./routes/index'))
