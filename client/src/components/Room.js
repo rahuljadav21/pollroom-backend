@@ -77,7 +77,7 @@ function Parent() {
         }
        
         fetchRoom();
-    },[id,time]);
+    },[id,time,room,polls]);
    
 
 
