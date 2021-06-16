@@ -1,0 +1,45 @@
+.add-container{
+   
+    width: 35%;
+    height: 97vh;
+  }
+  .poll-container{
+    
+    width: 65%;
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: row;
+  }
+  .poll{
+    margin: 3vh;
+  }
+  
+  .add-container form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+   
+    top: 25vh;
+  }
+  #title{
+    display: flex;
+    justify-content: center;
+    background: white;
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+  }
+  progress{
+    margin-left:1vh ;
+  }
+  label{
+    margin-right: 1vh;
+  }
