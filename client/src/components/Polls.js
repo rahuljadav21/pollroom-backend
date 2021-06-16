@@ -15,7 +15,7 @@ function Polls({room,polls,user}) {
           },
           })
           .then(function(response) {
-           history.push(`/pollroom/room/${room._id}/poll/${pollId}`)
+           history.go(-1)
            
           })
           .catch(function(error) {
@@ -43,7 +43,7 @@ function Polls({room,polls,user}) {
                 <div className="que">Question :{p.question} </div>
                
                 <div className="res">
-                    <form className="validate-form" noValidate onSubmit={handleSubmit} method='post'>
+                    <form className="validate-form" noValidate onSubmit={handleSubmit}>
                     <div className="opt">
                         <label id='1'>A</label>
                               <input type="radio" onChange={e=>{setAns(e.target.value);setpollId(p._id)}} defaultChecked={p.option_1.includes(user._id)} disabled={p.option_1.includes(user._id)||p.option_2.includes(user._id)||p.option_3.includes(user._id)||p.option_4.includes(user._id)} name='ans'value='option_1' id="1"/>
