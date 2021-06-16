@@ -37,7 +37,7 @@ function Child({room,polls,user }) {
                 </div>
                 <div className="add-container">
                     <form onSubmit={handleSubmit} method='post' >
-                        <textarea onChange={e=>setQuestion(e.target.value)} name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
+                        <textarea onChange={e=>setQuestion(e.target.value)} required name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
                         <button type='submit' style={{background:'#198754'}}>Add</button>
                         
                     </form>

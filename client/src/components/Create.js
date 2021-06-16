@@ -29,7 +29,7 @@ function Create() {
   return (
     <div>
       <h1 className="mt-3">Create Room</h1>
-      <form onSubmit={handleSubmit} className="container validate-form" noValidate style={{display:'flex',flexDirection:'column',alignItems:'center'}}  method="post">
+      <form onSubmit={handleSubmit} className="container validate-form" style={{display:'flex',flexDirection:'column',alignItems:'center'}}  method="post">
         <div className="container mt-4" style={{ width: `20rem`, marginTop: `8vh`, display:'flex',flexDirection:'column' }}>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon3">Room :</span>
