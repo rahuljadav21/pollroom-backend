@@ -67,7 +67,7 @@ app.use('/pollroom',require('./routes/pollroom'))
 
 
   
-if ( process.env.NODE_ENV == "production"){
+
 
     app.use(express.static("client/build"));
 
@@ -78,7 +78,7 @@ if ( process.env.NODE_ENV == "production"){
     })
 
 
-}
+
 
 
 
