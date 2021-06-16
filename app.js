@@ -60,7 +60,7 @@ app.use(passport.session())
 
 const PORT = process.env.PORT
 
-//app.use(cors());
+app.use(cors());
 
 //routes
 app.use('/',require('./routes/index'))
@@ -68,6 +68,15 @@ app.use('/auth',require('./routes/auth'))
 app.use('/pollroom',require('./routes/pollroom'))
 
 //Error Handaling
+if(process.env.NODE_ENV=='production'){
+  const path = require('path')
+
+  app.get('/',(req,res)=>{
+      app.use(express.static(path.resolve(__dirname,'client','build')))
+      res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+  })
+}
+
 
 
 app.listen(PORT,console.log(`Server running in ${process.env.NODE_ENV} mode on Port ${PORT}`))
