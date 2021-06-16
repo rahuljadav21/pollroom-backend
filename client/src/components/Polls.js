@@ -15,7 +15,7 @@ function Polls({room,polls,user}) {
           },
           })
           .then(function(response) {
-           history.go(0)
+           history.push(`/pollroom/room/${room._id}/poll/${pollId}`)
            
           })
           .catch(function(error) {
