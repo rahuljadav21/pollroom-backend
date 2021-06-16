@@ -9,15 +9,14 @@ function Child({room,polls,user }) {
     
     const history = useHistory();
     const handleSubmit = (e) => {
-         e.preventDefault()
+       
        axios.post(`/pollroom/room/${room._id}`,{question:question },{
          "headers": {
          "content-type": "application/json",
          },
          })
-         .then(function(response) {
-          history.push(`/pollroom/room/${room._id}`)
-          
+         .then(function(response) {         
+          window.open(`https://pollroom.herokuapp.com/pollroom/room/${room._id}`,"_self")
          })
          .catch(function(error) {
            console.log(error);  
