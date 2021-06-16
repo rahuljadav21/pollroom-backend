@@ -64,14 +64,13 @@ app.use('/auth',require('./routes/auth'))
 app.use('/pollroom',require('./routes/pollroom'))
 
 //Error Handaling
-if(process.env.NODE_ENV=='production'){
-  
+
 
   app.get('/',(req,res)=>{
       app.use(express.static("/client/build"));
       
   })
-}
+
 
 
 
