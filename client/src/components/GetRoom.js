@@ -6,7 +6,7 @@ export class GetRoom extends Component {
       document.title='Poll Room'
         return (<>
           <div className='container m-auto my-5' style={{
-    width:'80vh',
+    width:'65%',
     marginTop:'7vh',
     
 }}>

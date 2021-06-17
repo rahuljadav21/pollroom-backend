@@ -36,7 +36,7 @@ function Polls({room,polls,user}) {
                 let b = (p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length===0)?0:(p.option_2.length*100)/(p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length)
                 let c = (p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length===0)?0:(p.option_3.length*100)/(p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length)
                 let d = (p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length===0)?0:(p.option_4.length*100)/(p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length)
-                
+                let total = p.option_1.length+p.option_2.length+p.option_3.length+p.option_4.length
               
                 return (
             <div className="poll" key={p._id} >
@@ -78,7 +78,7 @@ function Polls({room,polls,user}) {
 
                     </form>
                 </div>
-                <span>- by {p.sender} </span> 
+                <span class="badge bg-dark">{`${total} Responce`}</span>
                
             </div>
             )})}   

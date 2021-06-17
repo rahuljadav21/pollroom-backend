@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams,useHistory } from 'react-router'
 import Polls from './Polls';
+import {Link} from 'react-router-dom'
 
 
 function Child({room,polls,user }) {
@@ -42,6 +43,8 @@ function Child({room,polls,user }) {
                         <button type='submit' style={{background:'#198754'}}>Add</button>
                         
                     </form>
+                    <Link to='/pollroom'className='btn btn-sm btn-info'>Home</Link>
+
                 </div>
             </div>
 
