@@ -40,7 +40,7 @@ function Polls({room,polls,user}) {
               
                 return (
             <div className="poll" key={p._id} >
-                <div className="que" style={{display:'block',width:'50vh'}}>Question :<pre>{p.question} </pre></div>
+                <div className="que" style={{display:'block',width:'50vh',position:'relative',left:'10vh',textAlign:'start'}}>Question :<pre style={{fontFamily:'inherit'}}>{p.question} </pre></div>
                
                 <div className="res">
                     <form className="validate-form" method='post' onSubmit={handleSubmit}>
