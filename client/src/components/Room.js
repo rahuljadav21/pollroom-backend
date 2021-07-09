@@ -10,7 +10,7 @@ function Child({room,polls,user }) {
     
     const history = useHistory();
     const handleSubmit = (e) => {
-        //e.preventDefault()
+        e.preventDefault()
        axios.post(`/pollroom/room/${room._id}`,{question:question },{
          "headers": {
          "content-type": "application/json",
@@ -18,13 +18,13 @@ function Child({room,polls,user }) {
          })
          .then(function(response) {
              history.push(`/pollroom/room/${room._id}`)
-             setQuestion('')
+            
                      
          })
          .catch(function(error) {
            console.log(error);  
          });
-         
+         setQuestion('');
          };
     document.title=`${room.roomName}`
    return (
