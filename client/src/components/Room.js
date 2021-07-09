@@ -18,7 +18,7 @@ function Child({room,polls,user }) {
          })
          .then(function(response) {
              history.push(`/pollroom/room/${room._id}`)
-            
+             setQuestion('');
                      
          })
          .catch(function(error) {
@@ -39,7 +39,7 @@ function Child({room,polls,user }) {
                 </div>
                 <div className="add-container">
                     <form onSubmit={handleSubmit} method='post' >
-                        <textarea onChange={e=>setQuestion(e.target.value)} required name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
+                        <textarea value={question} onChange={e=>setQuestion(e.target.value)} required name="question" id="" cols="20" rows="10" placeholder="Paste/Type the question here"></textarea>
                         <button type='submit' style={{background:'#198754'}}>Add</button>
                         
                     </form>
